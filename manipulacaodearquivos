@@ -1,0 +1,38 @@
+# Função para solicitar o nome do usuário e gravá-lo em um arquivo de texto
+def gravar_nome_em_arquivo():
+    nome = input("Digite seu nome: ")
+    with open("nome.txt", "w") as arquivo:
+        arquivo.write(nome)
+    print("Nome gravado com sucesso no arquivo 'nome.txt'.")
+
+# Função para solicitar o nome de um arquivo de texto e imprimir seu conteúdo
+def imprimir_conteudo_arquivo():
+    nome_arquivo = input("Digite o nome do arquivo: ")
+    with open(nome_arquivo, "r") as arquivo:
+        conteudo = arquivo.read()
+        print(conteudo)
+
+# Função para ler o conteúdo de um arquivo e escrevê-lo em outro arquivo
+def copiar_arquivo():
+    with open("arquivo_exemplo.txt", "r") as arquivo_origem:
+        conteudo = arquivo_origem.read()
+    with open("novo_arquivo.txt", "w") as arquivo_destino:
+        arquivo_destino.write(conteudo)
+    print("Conteúdo do arquivo exemplo copiado para 'novo_arquivo.txt'.")
+
+# Função para ler um número fornecido pelo usuário e imprimir o nome correspondente no arquivo
+def imprimir_nome_por_numero():
+    numero = int(input("Digite um número: "))
+    with open("arquivo_exemplo.txt", "r") as arquivo:
+        linhas = arquivo.readlines()
+        try:
+            nome = linhas[numero - 1].strip()
+            print("Nome correspondente ao número {} é: {}".format(numero, nome))
+        except IndexError:
+            print("Número fora do intervalo.")
+
+# Testando as funções
+gravar_nome_em_arquivo()
+imprimir_conteudo_arquivo()
+copiar_arquivo()
+imprimir_nome_por_numero()
