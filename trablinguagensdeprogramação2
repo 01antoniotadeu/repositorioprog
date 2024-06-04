@@ -1,0 +1,11 @@
+print("Exemplo de Loop For:")
+for i in range(1, 6):  # Começa em 1 e vai até 5 (o último número é exclusivo)
+    print(i)
+print("\nExemplo de If-else:")
+numero = 7
+
+if numero % 2 == 0:  # Verifica se o número é divisível por 2 (par)
+    print(f"{numero} é par.")
+else:
+    print(f"{numero} é ímpar.")
+
